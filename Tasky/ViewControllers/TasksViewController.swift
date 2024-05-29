@@ -72,7 +72,18 @@ extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
         content.text = tasks[indexPath.row].title
         content.secondaryText = tasks[indexPath.row].description ?? ""
         cell.contentConfiguration = content
+        cell.accessoryView = createTaskCheckmarkButton()
         return cell
+    }
+    
+    private func createTaskCheckmarkButton() -> UIButton {
+        let completeButton = UIButton(type: .system)
+        let symbolName = "checkmark.circle"
+        let configuration = UIImage.SymbolConfiguration(pointSize: 24)
+        let image = UIImage(systemName: symbolName, withConfiguration: configuration)
+        completeButton.setImage(image, for: .normal)
+        completeButton.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
+        return completeButton
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
