@@ -8,9 +8,7 @@
 import UIKit
 
 class TasksViewController: UIViewController {
-    
-    private var tasks: [String] = ["Fazer café", "Estudar Swift", "Fazer trabalho da faculdade"]
-    
+        
     private lazy var tasksTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -55,7 +53,8 @@ extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         var content = cell.defaultContentConfiguration()
-        content.text = tasks[indexPath.row]
+        content.text = tasks[indexPath.row].title
+        content.secondaryText = tasks[indexPath.row].description ?? ""
         cell.contentConfiguration = content
         return cell
     }

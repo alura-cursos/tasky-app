@@ -15,6 +15,7 @@
 		4852ADDA2C06C7CC00330AC0 /* AssetsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4852ADD92C06C7CC00330AC0 /* AssetsConstants.swift */; };
 		4852ADDD2C06C8AE00330AC0 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4852ADDC2C06C8AE00330AC0 /* UIViewController+.swift */; };
 		4852ADE02C06C9A700330AC0 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4852ADDF2C06C9A700330AC0 /* TasksViewController.swift */; };
+		4852ADE32C06CB7200330AC0 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4852ADE22C06CB7200330AC0 /* Task.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		4852ADD92C06C7CC00330AC0 /* AssetsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsConstants.swift; sourceTree = "<group>"; };
 		4852ADDC2C06C8AE00330AC0 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		4852ADDF2C06C9A700330AC0 /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
+		4852ADE22C06CB7200330AC0 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		4852ADC32C06832A00330AC0 /* Tasky */ = {
 			isa = PBXGroup;
 			children = (
+				4852ADE12C06CB6B00330AC0 /* Models */,
 				4852ADDE2C06C99D00330AC0 /* ViewControllers */,
 				4852ADDB2C06C8A400330AC0 /* Extensions */,
 				4852ADD82C06C7C100330AC0 /* Utils */,
@@ -95,6 +98,14 @@
 				4852ADDF2C06C9A700330AC0 /* TasksViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		4852ADE12C06CB6B00330AC0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4852ADE22C06CB7200330AC0 /* Task.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,6 +183,7 @@
 				4852ADDD2C06C8AE00330AC0 /* UIViewController+.swift in Sources */,
 				4852ADC52C06832A00330AC0 /* AppDelegate.swift in Sources */,
 				4852ADC72C06832A00330AC0 /* SceneDelegate.swift in Sources */,
+				4852ADE32C06CB7200330AC0 /* Task.swift in Sources */,
 				4852ADE02C06C9A700330AC0 /* TasksViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
