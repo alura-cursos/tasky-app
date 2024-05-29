@@ -13,6 +13,7 @@
 		4852ADCE2C06832B00330AC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4852ADCD2C06832B00330AC0 /* Assets.xcassets */; };
 		4852ADD12C06832B00330AC0 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 4852ADD02C06832B00330AC0 /* Base */; };
 		4852ADDA2C06C7CC00330AC0 /* AssetsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4852ADD92C06C7CC00330AC0 /* AssetsConstants.swift */; };
+		4852ADDD2C06C8AE00330AC0 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4852ADDC2C06C8AE00330AC0 /* UIViewController+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		4852ADD02C06832B00330AC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4852ADD22C06832B00330AC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4852ADD92C06C7CC00330AC0 /* AssetsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsConstants.swift; sourceTree = "<group>"; };
+		4852ADDC2C06C8AE00330AC0 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		4852ADC32C06832A00330AC0 /* Tasky */ = {
 			isa = PBXGroup;
 			children = (
+				4852ADDB2C06C8A400330AC0 /* Extensions */,
 				4852ADD82C06C7C100330AC0 /* Utils */,
 				4852ADC42C06832A00330AC0 /* AppDelegate.swift */,
 				4852ADC62C06832A00330AC0 /* SceneDelegate.swift */,
@@ -73,6 +76,14 @@
 				4852ADD92C06C7CC00330AC0 /* AssetsConstants.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		4852ADDB2C06C8A400330AC0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4852ADDC2C06C8AE00330AC0 /* UIViewController+.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,6 +158,7 @@
 			files = (
 				4852ADDA2C06C7CC00330AC0 /* AssetsConstants.swift in Sources */,
 				4852ADC92C06832A00330AC0 /* HomeViewController.swift in Sources */,
+				4852ADDD2C06C8AE00330AC0 /* UIViewController+.swift in Sources */,
 				4852ADC52C06832A00330AC0 /* AppDelegate.swift in Sources */,
 				4852ADC72C06832A00330AC0 /* SceneDelegate.swift in Sources */,
 			);
