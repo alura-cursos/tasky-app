@@ -8,10 +8,12 @@
 import UIKit
 
 protocol TaskDelegate: AnyObject {
-    func didAddTask()
+    func didAddTask(newTask: Task)
 }
 
 class TasksViewController: UIViewController {
+    
+    private var taskRepository: TaskRepository
         
     private lazy var tasksTableView: UITableView = {
         let tableView = UITableView()
@@ -32,6 +34,15 @@ class TasksViewController: UIViewController {
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
+    
+    init(taskRepository: TaskRepository = TaskRepository()) {
+        self.taskRepository = taskRepository
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +77,7 @@ class TasksViewController: UIViewController {
     @objc func didTapCompleteTaskButton(_ sender: UIButton) {
         guard let cell = sender.superview as? UITableViewCell else { return }
         guard let indexPath = tasksTableView.indexPath(for: cell) else { return }
-        tasks[indexPath.row].isCompleted.toggle()
+        taskRepository.completeTask(at: indexPath.row)
         tasksTableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
@@ -74,16 +85,16 @@ class TasksViewController: UIViewController {
 
 extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tasks.count
+        return taskRepository.tasks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         var content = cell.defaultContentConfiguration()
-        content.text = tasks[indexPath.row].title
-        content.secondaryText = tasks[indexPath.row].description ?? ""
+        content.text = taskRepository.tasks[indexPath.row].title
+        content.secondaryText = taskRepository.tasks[indexPath.row].description ?? ""
         cell.contentConfiguration = content
-        cell.accessoryView = createTaskCheckmarkButton(task: tasks[indexPath.row])
+        cell.accessoryView = createTaskCheckmarkButton(task: taskRepository.tasks[indexPath.row])
         return cell
     }
     
@@ -108,7 +119,7 @@ extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            tasks.remove(at: indexPath.row)
+            taskRepository.removeTask(at: indexPath.row)
             tasksTableView.reloadData()
         }
     }
@@ -123,7 +134,8 @@ extension TasksViewController: TasksTableViewHeaderDelegate {
 }
 
 extension TasksViewController: TaskDelegate {
-    func didAddTask() {
+    func didAddTask(newTask: Task) {
+        taskRepository.addTask(newTask: newTask)
         tasksTableView.reloadData()
     }
 }
