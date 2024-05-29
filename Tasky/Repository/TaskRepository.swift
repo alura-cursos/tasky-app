@@ -8,25 +8,26 @@
 import Foundation
 
 class TaskRepository {
-    init() {
+    init(persistence: Persistence = UserDefaultsPersistence()) {
+        self.persistence = persistence
         loadTasks()
     }
     
     var tasks: [Task] = []
-    private let userDefaults = UserDefaults.standard
+    private let persistence: Persistence
     private let tasksKey = "tasky-app-tasks"
     
     private func saveTasks() {
         do {
             let tasksData = try JSONEncoder().encode(tasks)
-            userDefaults.setValue(tasksData, forKey: tasksKey)
+            persistence.saveData(data: tasksData, forKey: tasksKey)
         } catch {
             print("Ocorreu um erro ao salvar as tarefas: \(error)")
         }
     }
     
     private func loadTasks() {
-        guard let tasksData = userDefaults.data(forKey: tasksKey) else { return }
+        guard let tasksData = persistence.loadData(forKey: tasksKey) else { return }
         do {
             tasks = try JSONDecoder().decode([Task].self, from: tasksData)
         } catch {
