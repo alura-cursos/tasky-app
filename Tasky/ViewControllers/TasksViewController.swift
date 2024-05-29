@@ -16,6 +16,8 @@ class TasksViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.layer.cornerRadius = 24.0
+        let header = TasksTableViewHeader(frame: .init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 64.0))
+        tableView.tableHeaderView = header
         return tableView
     }()
     
