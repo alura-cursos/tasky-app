@@ -53,11 +53,11 @@ class AddTaskViewController: UIViewController {
         return textField
     }()
     
-    private lazy var saveButton: UIButton = {
+    private lazy var saveTaskButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Salvar", for: .normal)
-        button.addTarget(self, action: #selector(saveTask), for: .touchUpInside)
+        button.addTarget(self, action: #selector(didTapSaveTaskButton), for: .touchUpInside)
         button.titleLabel?.font = .systemFont(ofSize: 18.0, weight: .bold)
         return button
     }()
@@ -75,7 +75,7 @@ class AddTaskViewController: UIViewController {
         view.addSubview(titleTextField)
         view.addSubview(descriptionLabel)
         view.addSubview(descriptionTextField)
-        view.addSubview(saveButton)
+        view.addSubview(saveTaskButton)
     }
     
     private func setupConstraints() {
@@ -99,12 +99,12 @@ class AddTaskViewController: UIViewController {
             descriptionTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             descriptionTextField.heightAnchor.constraint(equalToConstant: 44.0),
             
-            saveButton.topAnchor.constraint(equalTo: descriptionTextField.bottomAnchor, constant: 20),
-            saveButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            saveTaskButton.topAnchor.constraint(equalTo: descriptionTextField.bottomAnchor, constant: 20),
+            saveTaskButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
     }
     
-    @objc private func saveTask() {
+    @objc private func didTapSaveTaskButton() {
     }
     
 }
