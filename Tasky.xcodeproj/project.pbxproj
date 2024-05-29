@@ -17,6 +17,7 @@
 		4852ADE02C06C9A700330AC0 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4852ADDF2C06C9A700330AC0 /* TasksViewController.swift */; };
 		4852ADE32C06CB7200330AC0 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4852ADE22C06CB7200330AC0 /* Task.swift */; };
 		4852ADE92C06CD6600330AC0 /* TasksTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4852ADE82C06CD6600330AC0 /* TasksTableViewHeader.swift */; };
+		4852ADEB2C06CFC000330AC0 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4852ADEA2C06CFC000330AC0 /* AddTaskViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		4852ADDF2C06C9A700330AC0 /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		4852ADE22C06CB7200330AC0 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		4852ADE82C06CD6600330AC0 /* TasksTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewHeader.swift; sourceTree = "<group>"; };
+		4852ADEA2C06CFC000330AC0 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				4852ADC82C06832A00330AC0 /* HomeViewController.swift */,
 				4852ADDF2C06C9A700330AC0 /* TasksViewController.swift */,
+				4852ADEA2C06CFC000330AC0 /* AddTaskViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				4852ADC72C06832A00330AC0 /* SceneDelegate.swift in Sources */,
 				4852ADE32C06CB7200330AC0 /* Task.swift in Sources */,
 				4852ADE02C06C9A700330AC0 /* TasksViewController.swift in Sources */,
+				4852ADEB2C06CFC000330AC0 /* AddTaskViewController.swift in Sources */,
 				4852ADE92C06CD6600330AC0 /* TasksTableViewHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
