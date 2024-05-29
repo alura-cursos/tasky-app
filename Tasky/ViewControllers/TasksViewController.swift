@@ -100,7 +100,8 @@ extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            print("Toque no botão de remover")
+            tasks.remove(at: indexPath.row)
+            tasksTableView.reloadData()
         }
     }
 }
