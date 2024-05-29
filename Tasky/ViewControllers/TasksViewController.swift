@@ -63,6 +63,13 @@ class TasksViewController: UIViewController {
         ])
     }
     
+    @objc func didTapCompleteTaskButton(_ sender: UIButton) {
+        guard let cell = sender.superview as? UITableViewCell else { return }
+        guard let indexPath = tasksTableView.indexPath(for: cell) else { return }
+        tasks[indexPath.row].isCompleted.toggle()
+        tasksTableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+    
 }
 
 extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
@@ -76,13 +83,14 @@ extension TasksViewController: UITableViewDelegate, UITableViewDataSource {
         content.text = tasks[indexPath.row].title
         content.secondaryText = tasks[indexPath.row].description ?? ""
         cell.contentConfiguration = content
-        cell.accessoryView = createTaskCheckmarkButton()
+        cell.accessoryView = createTaskCheckmarkButton(task: tasks[indexPath.row])
         return cell
     }
     
-    private func createTaskCheckmarkButton() -> UIButton {
+    private func createTaskCheckmarkButton(task: Task) -> UIButton {
         let completeButton = UIButton(type: .system)
-        let symbolName = "checkmark.circle"
+        completeButton.addTarget(self, action: #selector(didTapCompleteTaskButton), for: .touchUpInside)
+        let symbolName = task.isCompleted ? "checkmark.circle.fill" : "checkmark.circle"
         let configuration = UIImage.SymbolConfiguration(pointSize: 24)
         let image = UIImage(systemName: symbolName, withConfiguration: configuration)
         completeButton.setImage(image, for: .normal)
