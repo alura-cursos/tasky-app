@@ -15,7 +15,15 @@ class TasksViewController: UIViewController {
         tableView.backgroundColor = .white
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.layer.cornerRadius = 24.0
         return tableView
+    }()
+    
+    private lazy var taskIllustrationImageView: UIImageView = {
+        let imageView = UIImageView(image: UIImage(named: AssetsConstants.tasksIllustration))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        return imageView
     }()
     
     override func viewDidLoad() {
@@ -31,12 +39,17 @@ class TasksViewController: UIViewController {
     }
     
     private func addSubviews() {
+        view.addSubview(taskIllustrationImageView)
         view.addSubview(tasksTableView)
     }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            tasksTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            
+            taskIllustrationImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            taskIllustrationImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            tasksTableView.topAnchor.constraint(equalTo: taskIllustrationImageView.bottomAnchor),
             tasksTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tasksTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tasksTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
